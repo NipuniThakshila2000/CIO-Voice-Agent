@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CIQ Voice Agent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Libre+Franklin:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <a class="brand" href="#" aria-label="CIQ Voice Agent home">
+          <span class="brand-logo">
+            <img src="ciq-logo.svg" alt="" />
+          </span>
+          <span>
+            <strong>CIQ Voice Agent</strong>
+            <small>Burnout Assessment Platform</small>
+          </span>
+        </a>
+
+        <div class="header-actions" aria-label="Status shortcuts">
+          <button class="pill sentiment" type="button">
+            <svg class="pill-icon happy-icon" viewBox="0 0 20 20" aria-hidden="true">
+              <circle cx="10" cy="10" r="8"></circle>
+              <circle cx="7.25" cy="8" r="1" fill="currentColor"></circle>
+              <circle cx="12.75" cy="8" r="1" fill="currentColor"></circle>
+              <path d="M7 11.5c.9 1 2.1 1.5 3 1.5s2.1-.5 3-1.5"></path>
+            </svg>
+            Sentiment
+          </button>
+          <button class="pill survey" type="button">
+            <svg class="pill-icon survey-icon" viewBox="0 0 20 20" aria-hidden="true">
+              <rect x="4" y="4" width="12" height="12" rx="2"></rect>
+              <path d="M7 8h6"></path>
+              <path d="M7 12h6"></path>
+            </svg>
+            Survey
+          </button>
+          <span class="pill muted">Ready</span>
+        </div>
+      </header>
+
+      <nav class="app-tabs" aria-label="Application sections">
+        <button class="tab active" type="button" data-tab-target="assessment">Assessment</button>
+        <button class="tab" type="button" data-tab-target="admin">Admin</button>
+        <button class="tab" type="button" data-tab-target="generator">Test Generator</button>
+      </nav>
+
+      <main class="workspace">
+        <section class="app-page active" data-page="assessment">
+          <div class="top-grid">
+          <article class="glass-card camera-card">
+            <div class="card-header">
+              <h2><span class="live-dot"></span>Camera Feed</h2>
+              <span class="status-label">Live</span>
+            </div>
+
+            <div class="camera-frame is-active" id="cameraFrame">
+              <div class="camera-empty" id="cameraEmpty" aria-label="Camera inactive">
+                <svg class="camera-off-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 8a2 2 0 0 1 2-2h8l2-3h3v18h-3l-2-3H6a2 2 0 0 1-2-2z"></path>
+                  <path d="M5 19L19 5"></path>
+                </svg>
+              </div>
+              <div class="camera-active" id="cameraActive" aria-hidden="true">
+                <div class="face-guide"></div>
+                <div class="scan-line"></div>
+              </div>
+            </div>
+
+            <button class="wide-button is-active" id="cameraButton" type="button">
+              <svg class="previous-camera-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="6" width="12" height="12" rx="2"></rect>
+                <path d="M15 10l5-3v10l-5-3"></path>
+              </svg>
+              <span>Stop Camera</span>
+            </button>
+
+            <div class="conversation-zone">
+              <button class="primary-button is-active" id="conversationButton" type="button">
+                <svg class="mic-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="8" y="3" width="8" height="12" rx="4"></rect>
+                  <path d="M5 11a7 7 0 0 0 14 0"></path>
+                  <path d="M12 18v3"></path>
+                  <path d="M8 21h8"></path>
+                </svg>
+                <span>Conversation Active</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="glass-card sentiment-card">
+            <div class="card-header">
+              <h2>Face Emotion &amp; Sentiment</h2>
+            </div>
+
+            <div class="emotion-row">
+              <div class="emotion-avatar" id="emotionAvatar">:)</div>
+              <div>
+                <strong id="emotionLabel">Calm focus</strong>
+                <small id="confidenceLabel">Conf: 87%</small>
+              </div>
+            </div>
+
+            <div class="history-block">
+              <div class="section-label">Sentiment History</div>
+              <div class="history-track history-carousel has-data" id="historyTrack">
+                <article class="history-card calm">
+                  <div class="history-visual">
+                    <div class="chart-card score-chart">
+                      <div class="chart-status">
+                        <span class="moon-mark" aria-hidden="true"></span>
+                        <span>
+                          <em>Sentiment</em>
+                          <b>Optimal</b>
+                        </span>
+                      </div>
+                      <strong>87</strong>
+                      <small>Calm focus score</small>
+                      <div class="score-segment-line" aria-hidden="true">
+                        <i style="width: 34%"></i>
+                        <b></b>
+                        <i style="width: 12%"></i>
+                        <b></b>
+                        <i style="width: 16%"></i>
+                        <i style="width: 38%"></i>
+                      </div>
+                      <div class="chart-footer">
+                        <span>Start</span>
+                        <span>Current</span>
+                      </div>
+                    </div>
+                  </div>
+                  <h3>Positive Tone</h3>
+                  <p>Voice pace and facial cues show steady engagement during the opening questions.</p>
+                </article>
+
+                <article class="history-card neutral">
+                  <div class="history-visual">
+                    <div class="chart-card stages-chart">
+                      <span class="chart-label">Stress pattern</span>
+                      <strong>62%</strong>
+                      <small>Moderate load across 8m 42s</small>
+                      <div class="sleep-stage-chart" aria-hidden="true">
+                        <div class="stage-columns">
+                          <i class="wake" style="height: 20px"></i>
+                          <i class="stage low" style="height: 16px"></i>
+                          <i class="stage deep" style="height: 28px"></i>
+                          <i class="marker" style="height: 48px"></i>
+                          <i class="stage mid" style="height: 36px"></i>
+                          <i class="stage low" style="height: 20px"></i>
+                          <i class="marker" style="height: 52px"></i>
+                          <i class="stage mid" style="height: 30px"></i>
+                          <i class="stage deep" style="height: 42px"></i>
+                          <i class="stage low" style="height: 18px"></i>
+                          <i class="marker" style="height: 54px"></i>
+                          <i class="stage mid" style="height: 34px"></i>
+                          <i class="stage low" style="height: 24px"></i>
+                          <i class="wake" style="height: 22px"></i>
+                        </div>
+                        <div class="time-axis">
+                          <span>Q1</span>
+                          <span>Q4</span>
+                          <span>Q8</span>
+                          <span>Q12</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <h3>Stress Signal</h3>
+                  <p>Workload answers indicate pressure, but recovery and support signals remain stable.</p>
+                </article>
+
+                <article class="history-card stable">
+                  <div class="history-visual">
+                    <div class="chart-card guidance-chart">
+                      <div class="arc-scale" aria-hidden="true">
+                        <span>Low</span>
+                        <span>Stable</span>
+                        <span>High</span>
+                        <i></i>
+                      </div>
+                      <span class="moon-center" aria-hidden="true"></span>
+                      <small>Stable mood range</small>
+                      <strong>72 - 84</strong>
+                      <p>Healthy emotional consistency</p>
+                    </div>
+                  </div>
+                  <h3>Emotion Trend</h3>
+                  <p>Sentiment stays consistent with no sharp negative shifts across the session.</p>
+                </article>
+              </div>
+            </div>
+
+            <div class="sentiment-details">
+              <div class="metric-tile">
+                <span>Stress</span>
+                <strong id="stressValue">Low</strong>
+              </div>
+              <div class="metric-tile">
+                <span>Energy</span>
+                <strong id="energyValue">Good</strong>
+              </div>
+              <div class="metric-tile">
+                <span>Mood</span>
+                <strong id="moodValue">Stable</strong>
+              </div>
+            </div>
+          </article>
+          </div>
+
+          <section class="glass-card results-card">
+          <div class="card-header">
+            <h2>Final Results - Burnout Assessment</h2>
+            <button class="subtle-button" id="resetButton" type="button">Reset</button>
+          </div>
+
+          <div class="results-empty" id="resultsEmpty" hidden>
+            <svg class="clipboard-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="5" y="4" width="14" height="16" rx="3"></rect>
+              <path d="M9 4.5h6a1 1 0 0 1 1 1V8H8V5.5a1 1 0 0 1 1-1Z"></path>
+              <path d="M8 12h8"></path>
+              <path d="M8 16h8"></path>
+            </svg>
+            <strong>No assessment data</strong>
+            <small>Begin conversation to start the survey assessment.</small>
+          </div>
+
+          <div class="results-content" id="resultsContent">
+            <div class="result-score">
+              <span>Burnout Risk</span>
+              <strong>Moderate</strong>
+              <small>Assessment score: 18 / 25</small>
+              <div class="score-meter" aria-hidden="true">
+                <span style="width: 72%"></span>
+              </div>
+            </div>
+
+            <div class="result-summary assessment-summary-card">
+              <h3>Assessment Summary</h3>
+              <div class="summary-grid">
+                <div>
+                  <span>Total Questions</span>
+                  <strong>5</strong>
+                </div>
+                <div>
+                  <span>Completed</span>
+                  <strong>5</strong>
+                </div>
+                <div>
+                  <span>Current Score</span>
+                  <strong>2/5</strong>
+                </div>
+                <div>
+                  <span>Average Score</span>
+                  <strong>3.6/5</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="breakdown-panel">
+              <h3>Burnout Assessment Results - Technical Report</h3>
+              <div class="technical-report-groups assessment-report-lines">
+                <div class="technical-report-pair">
+                  <div class="breakdown-item">
+                    <div>
+                      <span>Emotional Exhaustion</span>
+                      <strong>4/5</strong>
+                    </div>
+                    <div class="breakdown-bar"><span style="width: 80%"></span></div>
+                    <small>Voice sentiment: Neutral - Blink rate +5.0% - Face emotion: Neutral</small>
+                  </div>
+                  <div class="breakdown-item">
+                    <div>
+                      <span>Depersonalization</span>
+                      <strong>4/5</strong>
+                    </div>
+                    <div class="breakdown-bar"><span style="width: 80%"></span></div>
+                    <small>Voice sentiment: Negative - Blink rate +5.0% - Face emotion: Neutral</small>
+                  </div>
+                </div>
+                <div class="technical-report-pair">
+                  <div class="breakdown-item">
+                    <div>
+                      <span>Personal Accomplishment</span>
+                      <strong>3/5</strong>
+                    </div>
+                    <div class="breakdown-bar"><span style="width: 60%"></span></div>
+                    <small>Voice sentiment: Negative - Blink rate +3.0% - Face emotion: Neutral</small>
+                  </div>
+                  <div class="breakdown-item">
+                    <div>
+                      <span>Physical Exhaustion</span>
+                      <strong>5/5</strong>
+                    </div>
+                    <div class="breakdown-bar"><span style="width: 100%"></span></div>
+                    <small>Voice sentiment: Negative - Blink rate +7.0% - Face emotion: SAD</small>
+                  </div>
+                </div>
+                <div class="technical-report-single">
+                  <div class="breakdown-item">
+                    <div>
+                      <span>Job Satisfaction</span>
+                      <strong>2/5</strong>
+                    </div>
+                    <div class="breakdown-bar"><span style="width: 40%"></span></div>
+                    <small>Voice sentiment: Negative - Blink rate -2.0% - Face emotion: SAD</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="recommendations assessment-actions-card">
+              <h3>Recommended Actions</h3>
+              <ul>
+                <li>Schedule a short manager check-in within 48 hours.</li>
+                <li>Review workload intensity and recovery windows.</li>
+                <li>Offer guided wellbeing resources after the session.</li>
+              </ul>
+              <button class="primary-button assessment-report-button" type="button">
+                <svg class="assessment-report-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 4.5h6.8l3.7 3.7V19.5H7z"></path>
+                  <path d="M13.8 4.5v3.8h3.7"></path>
+                  <path d="M9.2 13.2h5.6"></path>
+                  <path d="M9.2 16.1h3.6"></path>
+                  <path d="M16.8 13.1l.8 1.6 1.6.8-1.6.8-.8 1.6-.8-1.6-1.6-.8 1.6-.8z"></path>
+                </svg>
+                Generate AI Report
+              </button>
+            </div>
+          </div>
+          </section>
+        </section>
+
+        <section class="app-page" data-page="admin" hidden>
+          <section class="glass-card admin-banner-card">
+            <div class="card-header">
+              <h2>
+                <svg class="admin-title-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"></path>
+                  <path d="M9.5 11.5l1.8 1.8 3.2-3.2"></path>
+                </svg>
+                Knowledge Base Registration
+              </h2>
+              <button class="subtle-button admin-refresh" type="button">
+                <svg class="refresh-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20 12a8 8 0 0 0-14-5l-2 2"></path>
+                  <path d="M4 4v5h5"></path>
+                  <path d="M4 12a8 8 0 0 0 14 5l2-2"></path>
+                  <path d="M20 20v-5h-5"></path>
+                </svg>
+                Refresh
+              </button>
+            </div>
+            <div class="admin-status-row">
+              <span class="admin-status-dot" aria-hidden="true"></span>
+              <span>Registered — minCitationsCount: 1</span>
+            </div>
+          </section>
+
+          <section class="glass-card admin-upload-card">
+            <div class="card-header">
+              <h2>
+                <svg class="admin-upload-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="4" y="11" width="16" height="9" rx="2"></rect>
+                  <path d="M12 16V5"></path>
+                  <path d="M8 9l4-4 4 4"></path>
+                </svg>
+                Upload Document
+              </h2>
+            </div>
+            <div class="admin-form-grid">
+              <label class="admin-field">
+                <span>Document Title</span>
+                <input type="text" placeholder="e.g. Company Policy 2025" />
+              </label>
+
+              <label class="admin-field">
+                <span>File (PDF, DOCX, TXT) *</span>
+                <div class="file-row">
+                  <label class="file-button">
+                    <input type="file" accept=".pdf,.doc,.docx,.txt" />
+                    Choose File
+                  </label>
+                  <span class="file-name">No file chosen</span>
+                </div>
+              </label>
+
+              <button class="primary-button admin-upload-button" type="button">
+                <svg class="admin-upload-action-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 16V5"></path>
+                  <path d="M8 9l4-4 4 4"></path>
+                  <path d="M4 19h16"></path>
+                </svg>
+                Upload to Knowledge Base
+              </button>
+            </div>
+          </section>
+
+          <section class="glass-card admin-doc-card">
+            <div class="card-header">
+              <h2>
+                <svg class="admin-doc-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 3h7l5 5v13H7z"></path>
+                  <path d="M14 3v5h5"></path>
+                  <path d="M10 12h6"></path>
+                  <path d="M10 16h6"></path>
+                </svg>
+                Uploaded Documents
+              </h2>
+              <span class="status-label admin-file-count">1 file</span>
+            </div>
+            <div class="admin-doc-list">
+              <div class="admin-doc-item">
+                <div class="admin-doc-meta">
+                  <svg class="admin-mini-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 3h7l5 5v13H7z"></path>
+                    <path d="M14 3v5h5"></path>
+                    <path d="M10 12h6"></path>
+                    <path d="M10 16h6"></path>
+                  </svg>
+                  <div>
+                    <strong>TestOnly-CIQ-Introduction</strong>
+                    <small>ID: 6a0c9acd0759cc8b37e31026 · 5/19/2026, 10:45:57 PM</small>
+                  </div>
+                </div>
+                <button class="admin-delete-button" type="button" aria-label="Delete document">
+                  <svg class="trash-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 7h16"></path>
+                    <path d="M9 7V5h6v2"></path>
+                    <path d="M6 7l1 13h10l1-13"></path>
+                    <path d="M10 11v6"></path>
+                    <path d="M14 11v6"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section class="glass-card admin-delete-card">
+            <div class="card-header">
+              <h2>
+                <svg class="admin-hash-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9 4L7 20"></path>
+                  <path d="M17 4l-2 16"></path>
+                  <path d="M4 9h16"></path>
+                  <path d="M3 15h16"></path>
+                </svg>
+                Delete by Paper ID
+              </h2>
+            </div>
+            <p class="admin-delete-help">
+              Use this to delete a document from the Knowledge Base using its Paper ID directly
+              or before tracking was enabled.
+            </p>
+            <div class="admin-delete-row">
+              <input type="text" placeholder="Paste paper ID..." />
+              <button class="admin-delete-button danger" type="button" aria-label="Delete by paper ID">
+                <svg class="trash-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 7h16"></path>
+                  <path d="M9 7V5h6v2"></path>
+                  <path d="M6 7l1 13h10l1-13"></path>
+                  <path d="M10 11v6"></path>
+                  <path d="M14 11v6"></path>
+                </svg>
+              </button>
+            </div>
+          </section>
+        </section>
+
+        <section class="app-page" data-page="generator" hidden>
+          <section class="generator-intro">
+            <span class="generator-intro-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M9 3h6"></path>
+                <path d="M11 3v5l-5 9a2 2 0 0 0 2 3h8a2 2 0 0 0 2-3l-5-9V3"></path>
+                <path d="M8 14h8"></path>
+              </svg>
+            </span>
+            <div>
+              <h2>SSOT Test Generator</h2>
+              <p>Generate synthetic burnout scenarios and test the Knowledge Base integration without running the survey.</p>
+            </div>
+          </section>
+
+          <section class="glass-card generator-slider-card">
+            <div class="generator-slider-header">
+              <strong>Number of test cases: <span id="generatorCount">3</span></strong>
+            </div>
+            <div class="generator-slider-track">
+              <input id="generatorRange" type="range" min="1" max="10" value="3" />
+              <div class="generator-range-labels" aria-hidden="true">
+                <span>1</span>
+                <span>10</span>
+              </div>
+            </div>
+            <button class="primary-button generator-submit" type="button">
+              <span class="generator-spark" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5z"></path>
+                  <path d="M18.5 14l.7 2.1L21 17l-1.8.6-.7 2.1-.7-2.1-1.8-.6 1.8-.6z"></path>
+                </svg>
+              </span>
+              Generate Test Cases
+            </button>
+          </section>
+
+          <section class="glass-card generator-chat-card">
+            <div class="card-header generator-chat-header">
+              <h2>
+                <svg class="generator-chat-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 5h12a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3h-5l-4 3v-3H6a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3Z"></path>
+                  <path d="M8 10h8"></path>
+                  <path d="M8 14h5"></path>
+                </svg>
+                Chat with Knowledge Base
+              </h2>
+              <button class="subtle-button generator-new-chat" type="button">
+                <span class="generator-new-chat-icon" aria-hidden="true"></span>
+                New Chat
+              </button>
+            </div>
+            <div class="generator-chat-body">
+              <div class="generator-chat-empty">
+                Ask anything about your company's Knowledge Base...
+              </div>
+            </div>
+            <div class="generator-chat-input">
+              <input type="text" placeholder="Ask the Knowledge Base..." />
+              <button class="primary-button generator-send-button" type="button">
+                <svg class="generator-send-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 12l16-8-6 16-3-6-7-2z"></path>
+                  <path d="M11 14l5-10"></path>
+                </svg>
+                Send
+              </button>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
