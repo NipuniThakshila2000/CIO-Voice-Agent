@@ -2935,3 +2935,153 @@ body::after {
   color: var(--ink);
   border-color: var(--hairline);
 }
+
+/* Visible color-code labels on related UI surfaces. */
+.app-shell {
+  position: relative;
+}
+
+.app-shell::before {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 30;
+  padding: 9px 12px;
+  content: "Background: #fbf3e9 / #f4e7d8 / #fff8ef";
+  color: #2f2a25;
+  border: 1px solid rgba(82, 68, 55, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 12px 28px rgba(92, 61, 37, 0.14);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0;
+  pointer-events: none;
+}
+
+.app-header,
+.brand-logo,
+.glass-card,
+.pill.sentiment,
+.pill.survey,
+.tab.active,
+.camera-frame,
+.history-visual,
+.chart-card,
+.wide-button.is-active,
+.primary-button.is-active {
+  position: relative;
+}
+
+.app-header::after,
+.brand-logo::after,
+.glass-card::after,
+.pill.sentiment::after,
+.pill.survey::after,
+.tab.active::after,
+.camera-frame::after,
+.history-visual::after,
+.chart-card::after,
+.wide-button.is-active::after,
+.primary-button.is-active::after {
+  position: absolute;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  max-width: calc(100% - 24px);
+  padding: 5px 8px;
+  overflow: hidden;
+  color: #2f2a25;
+  border: 1px solid rgba(82, 68, 55, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 8px 18px rgba(92, 61, 37, 0.13);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0;
+  pointer-events: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.app-header::after {
+  right: 18px;
+  bottom: -11px;
+  content: "Header/Card glass: rgba(255,249,241,.68)";
+}
+
+.brand-logo::after {
+  left: 50%;
+  bottom: -14px;
+  content: "Logo tile: #ffffff";
+  transform: translateX(-50%);
+}
+
+.glass-card::after {
+  top: 12px;
+  right: 12px;
+  content: "Surface: rgba(255,249,241,.68)";
+}
+
+.pill.sentiment::after {
+  left: 50%;
+  bottom: -24px;
+  content: "Text: #3d8767";
+  transform: translateX(-50%);
+}
+
+.pill.survey::after {
+  left: 50%;
+  bottom: -24px;
+  content: "Text: #7a5c91";
+  transform: translateX(-50%);
+}
+
+.tab.active::after {
+  left: 50%;
+  bottom: -12px;
+  content: "Active: rgba(255,255,255,.58)";
+  transform: translateX(-50%);
+}
+
+.camera-frame::after {
+  right: 12px;
+  bottom: 12px;
+  content: "Camera: #ffffff / #a4cbd1 / #e6b47e";
+}
+
+.history-visual::after {
+  right: 10px;
+  bottom: 10px;
+  content: "Panel: rgba(255,255,255,.48)";
+}
+
+.chart-card::after {
+  right: 10px;
+  top: 10px;
+  color: #fffaf4;
+  border-color: rgba(255, 250, 244, 0.32);
+  background: rgba(73, 45, 31, 0.48);
+  content: "Gradient: #a56442 / #c4865c / #e0b489";
+}
+
+.wide-button.is-active::after,
+.primary-button.is-active::after {
+  right: 12px;
+  top: -11px;
+  content: "Active green: #4f9b77";
+}
+
+@media (max-width: 680px) {
+  .app-shell::before {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    justify-content: center;
+  }
+}
