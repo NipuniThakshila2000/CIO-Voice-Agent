@@ -2971,9 +2971,7 @@ body::after {
 .chart-card,
 .wide-button.is-active,
 .primary-button.is-active,
-.status-label,
 .section-label,
-.emotion-avatar,
 .result-score,
 .score-meter,
 .summary-grid div,
@@ -3004,9 +3002,7 @@ body::after {
 .chart-card::after,
 .wide-button.is-active::after,
 .primary-button.is-active::after,
-.status-label::after,
 .section-label::after,
-.emotion-avatar::after,
 .result-score::after,
 .score-meter::after,
 .summary-grid div::after,
@@ -3108,25 +3104,11 @@ body::after {
   content: "Active #4f9b77e6 | Text #ffffff";
 }
 
-.status-label::after {
-  left: 50%;
-  bottom: -22px;
-  content: "Status #2f2a259e | Fill #ffffff80";
-  transform: translateX(-50%);
-}
-
 .section-label::after {
   left: 0;
   top: 100%;
   margin-top: 4px;
   content: "Label #2f2a259e";
-}
-
-.emotion-avatar::after {
-  left: 50%;
-  bottom: -14px;
-  content: "Avatar #ffffff80 | Text #2f2a25";
-  transform: translateX(-50%);
 }
 
 .result-score::after {
