@@ -522,6 +522,8 @@ button {
 
 .status-label,
 .section-label {
+  position: relative;
+  display: inline-block;
   color: var(--ink-soft);
   font-size: 11px;
   font-weight: 700;
@@ -3106,9 +3108,8 @@ body::after {
 
 .section-label::after {
   left: 0;
-  top: 100%;
-  margin-top: 4px;
-  content: "Label #2f2a25";
+  top: -20px;
+  content: "Section #2f2a25";
 }
 
 .result-score::after {
@@ -3128,6 +3129,20 @@ body::after {
   right: 8px;
   bottom: 8px;
   content: "Tile #ffffff | Text #2f2a25";
+}
+
+.history-card.calm .chart-card::after {
+  left: 10px;
+  right: auto;
+  top: 10px;
+  content: "Calm #a56442 / #c4865c / #e0b489 | Text #fffaf4";
+}
+
+.history-card.neutral .chart-card::after {
+  left: 10px;
+  right: auto;
+  top: 10px;
+  content: "Stress #a56442 / #c4865c / #e0b489 | Bars #3f8faa #7dc5df #4e93ad";
 }
 
 .admin-status-row::after {
