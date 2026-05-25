@@ -3012,7 +3012,7 @@ body::after {
 .app-header::after {
   right: 18px;
   bottom: -11px;
-  content: "Header/Card glass: rgba(255,249,241,.68)";
+  content: "Header/Card glass: #ffffffc2 / #f8ebdb85 / #fff9f1ad";
 }
 
 .brand-logo::after {
@@ -3025,7 +3025,7 @@ body::after {
 .glass-card::after {
   top: 12px;
   right: 12px;
-  content: "Surface: rgba(255,249,241,.68)";
+  content: "Surface: #fff9f1ad";
 }
 
 .pill.sentiment::after {
@@ -3045,7 +3045,7 @@ body::after {
 .tab.active::after {
   left: 50%;
   bottom: -12px;
-  content: "Active: rgba(255,255,255,.58)";
+  content: "Active: #ffffff94";
   transform: translateX(-50%);
 }
 
@@ -3058,7 +3058,7 @@ body::after {
 .history-visual::after {
   right: 10px;
   bottom: 10px;
-  content: "Panel: rgba(255,255,255,.48)";
+  content: "Panel: #ffffff7a";
 }
 
 .chart-card::after {
