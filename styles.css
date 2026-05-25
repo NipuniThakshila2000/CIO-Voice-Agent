@@ -1505,6 +1505,26 @@ button {
   letter-spacing: 0.01em;
 }
 
+.breakdown-panel h3 {
+  position: relative;
+}
+
+.breakdown-panel h3::after {
+  display: inline-flex;
+  margin-left: 12px;
+  padding: 4px 8px;
+  vertical-align: middle;
+  content: "Bars #3f8faa / #7dc5df / #4e93ad";
+  color: #2f2a25;
+  border: 1px solid rgba(82, 68, 55, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
 .summary-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -3129,20 +3149,6 @@ body::after {
   right: 8px;
   bottom: 8px;
   content: "Tile #ffffff | Text #2f2a25";
-}
-
-.history-card.calm .chart-card::after {
-  left: 10px;
-  right: auto;
-  top: 10px;
-  content: "Calm #a56442 / #c4865c / #e0b489 | Text #fffaf4";
-}
-
-.history-card.neutral .chart-card::after {
-  left: 10px;
-  right: auto;
-  top: 10px;
-  content: "Stress #a56442 / #c4865c / #e0b489 | Bars #3f8faa #7dc5df #4e93ad";
 }
 
 .admin-status-row::after {
