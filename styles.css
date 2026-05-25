@@ -2971,7 +2971,27 @@ body::after {
 .history-visual,
 .chart-card,
 .wide-button.is-active,
-.primary-button.is-active {
+.primary-button.is-active,
+.status-label,
+.section-label,
+.emotion-avatar,
+.result-score,
+.score-meter,
+.summary-grid div,
+.breakdown-item,
+.admin-status-row,
+.admin-field,
+.file-button,
+.admin-upload-button,
+.admin-doc-item,
+.admin-delete-button.danger,
+.admin-control,
+.generator-panel,
+.generator-slider-track,
+.generator-meter,
+.generator-chat-input,
+.generator-new-chat,
+.generator-send-button {
   position: relative;
 }
 
@@ -2985,7 +3005,27 @@ body::after {
 .history-visual::after,
 .chart-card::after,
 .wide-button.is-active::after,
-.primary-button.is-active::after {
+.primary-button.is-active::after,
+.status-label::after,
+.section-label::after,
+.emotion-avatar::after,
+.result-score::after,
+.score-meter::after,
+.summary-grid div::after,
+.breakdown-item::after,
+.admin-status-row::after,
+.admin-field::after,
+.file-button::after,
+.admin-upload-button::after,
+.admin-doc-item::after,
+.admin-delete-button.danger::after,
+.admin-control::after,
+.generator-panel::after,
+.generator-slider-track::after,
+.generator-meter::after,
+.generator-chat-input::after,
+.generator-new-chat::after,
+.generator-send-button::after {
   position: absolute;
   z-index: 20;
   display: inline-flex;
@@ -3075,6 +3115,118 @@ body::after {
   right: 12px;
   top: -11px;
   content: "Active #4f9b77e6 | Text #ffffff";
+}
+
+.status-label::after {
+  left: 50%;
+  bottom: -22px;
+  content: "Status #2f2a259e | Fill #ffffff80";
+  transform: translateX(-50%);
+}
+
+.section-label::after {
+  left: 0;
+  top: 100%;
+  margin-top: 4px;
+  content: "Label #2f2a259e";
+}
+
+.emotion-avatar::after {
+  left: 50%;
+  bottom: -14px;
+  content: "Avatar #ffffff80 | Text #2f2a25";
+  transform: translateX(-50%);
+}
+
+.result-score::after {
+  right: 12px;
+  top: 12px;
+  content: "Result #ffffff1a | Text #2f2a25 | Muted #2f2a259e";
+}
+
+.score-meter::after {
+  right: 0;
+  top: -24px;
+  content: "Meter bg #ffffff1f | Fill #4f9b77";
+}
+
+.summary-grid div::after,
+.breakdown-item::after {
+  right: 8px;
+  bottom: 8px;
+  content: "Tile #ffffff1a | Text #2f2a25";
+}
+
+.admin-status-row::after {
+  right: 28px;
+  bottom: -2px;
+  content: "Status green #4f9b77";
+}
+
+.admin-field::after {
+  right: 0;
+  bottom: -18px;
+  content: "Input #ffffff80 | Text #2f2a25 | Border #52443729";
+}
+
+.file-button::after {
+  left: 50%;
+  bottom: -24px;
+  content: "File #74d4ffe6 | Text #ffffff";
+  transform: translateX(-50%);
+}
+
+.admin-upload-button::after,
+.generator-send-button::after {
+  right: 8px;
+  top: -12px;
+  content: "Action #40d488e6 | Text #ffffff";
+}
+
+.admin-doc-item::after {
+  right: 10px;
+  bottom: 8px;
+  content: "Doc row #ffffff14 | Icon #3f8faa";
+}
+
+.admin-delete-button.danger::after {
+  right: 0;
+  top: -24px;
+  color: #ffffff;
+  border-color: #ffffff52;
+  background: #6d1f28cc;
+  content: "Danger #b73642eb";
+}
+
+.admin-control::after,
+.generator-panel::after {
+  right: 10px;
+  bottom: 8px;
+  content: "Panel #ffffff14 | Border #52443729";
+}
+
+.generator-slider-track::after {
+  right: 0;
+  top: -24px;
+  content: "Slider bg #ffffff1f | Thumb #4f9b77";
+}
+
+.generator-meter::after {
+  right: 0;
+  top: -24px;
+  content: "Meter bg #ffffff1f | Fill #3f8faa";
+}
+
+.generator-chat-input::after {
+  right: 16px;
+  top: -14px;
+  content: "Chat input #ffffff80 | Text #2f2a25";
+}
+
+.generator-new-chat::after {
+  right: 0;
+  top: -24px;
+  content: "New chat #ffffff14 | Text #2f2a25";
 }
 
 @media (max-width: 680px) {
