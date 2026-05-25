@@ -1426,6 +1426,7 @@ button {
   letter-spacing: 0.01em;
 }
 
+.results-card,
 .result-score,
 .result-summary,
 .breakdown-panel,
@@ -3027,7 +3028,6 @@ body::after {
 .section-label::after,
 .result-score::after,
 .score-meter::after,
-.summary-grid div::after,
 .admin-status-row::after,
 .admin-field::after,
 .file-button::after,
@@ -3131,22 +3131,32 @@ body::after {
   content: "Section #2f2a25";
 }
 
-.result-score::after {
-  right: 12px;
-  top: 12px;
-  content: "Result #ffffff | Text #2f2a25 | Muted #2f2a25";
-}
-
 .score-meter::after {
   right: 0;
   top: -24px;
   content: "Meter bg #ffffff | Fill #4f9b77";
 }
 
-.summary-grid div::after {
-  right: 8px;
-  bottom: 8px;
-  content: "Tile #ffffff | Text #2f2a25";
+.results-card::after {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 8px;
+  content: "Results #ffffff | Text #2f2a25";
+  color: #2f2a25;
+  border: 1px solid rgba(82, 68, 55, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 8px 18px rgba(92, 61, 37, 0.13);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0;
+  pointer-events: none;
 }
 
 .admin-status-row::after {
