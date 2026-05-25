@@ -2962,7 +2962,6 @@ body::after {
 }
 
 .app-header,
-.brand-logo,
 .glass-card,
 .pill.sentiment,
 .pill.survey,
@@ -2996,7 +2995,6 @@ body::after {
 }
 
 .app-header::after,
-.brand-logo::after,
 .glass-card::after,
 .pill.sentiment::after,
 .pill.survey::after,
@@ -3055,13 +3053,6 @@ body::after {
   content: "Header #ffffffc2 / #f8ebdb85 / #fff9f1ad | Text #2f2a25 | Border #52443729";
 }
 
-.brand-logo::after {
-  left: 50%;
-  bottom: -14px;
-  content: "Logo #ffffffeb | Border #5244372e";
-  transform: translateX(-50%);
-}
-
 .glass-card::after {
   top: 12px;
   right: 12px;
@@ -3107,7 +3098,7 @@ body::after {
   color: #fffaf4;
   border-color: rgba(255, 250, 244, 0.32);
   background: rgba(73, 45, 31, 0.48);
-  content: "Chart #a56442 / #c4865c / #e0b489 | Text #fffaf4 | Bars #3f8faa #7dc5df #4e93ad | Icon #492d1f57";
+  content: "Chart #a56442 / #c4865c / #e0b489 | Text #fffaf4 | Bars #3f8faa #7dc5df #4e93ad";
 }
 
 .wide-button.is-active::after,
@@ -3186,7 +3177,7 @@ body::after {
 .admin-doc-item::after {
   right: 10px;
   bottom: 8px;
-  content: "Doc row #ffffff14 | Icon #3f8faa";
+  content: "Doc row #ffffff14";
 }
 
 .admin-delete-button.danger::after {
