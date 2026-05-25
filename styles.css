@@ -2668,34 +2668,40 @@ button {
   stroke-width: 2.2 !important;
 }
 
-/* Warm light theme */
+/*
+  Warm light theme color map for developers.
+  Page background: #fbf3e9, #f4e7d8, #fff8ef, #f7efe3.
+  Main text: #2f2a25. Chart gradient: #a56442, #c4865c, #e0b489.
+  Accents: #3f8faa blue, #4f9b77 green, #81679c purple, #b88658 warm gold.
+*/
 :root {
-  --canvas: #f7efe3;
-  --canvas-soft: rgba(255, 255, 255, 0.62);
-  --canvas-deep: rgba(246, 229, 209, 0.72);
-  --ink: #2f2a25;
-  --ink-graphite: #2f2a25;
-  --ink-warm: rgba(47, 42, 37, 0.82);
-  --ink-soft: rgba(47, 42, 37, 0.62);
-  --ink-quiet: rgba(47, 42, 37, 0.42);
-  --on-ink: #fff8ef;
-  --hairline: rgba(82, 68, 55, 0.16);
-  --hairline-cool: rgba(82, 68, 55, 0.28);
-  --mustard: #b88658;
-  --mustard-soft: rgba(184, 134, 88, 0.14);
-  --amber: #c28a5e;
-  --indigo: #81679c;
-  --sky: #3f8faa;
-  --olive: #4f9b77;
-  --shadow-soft: 0 28px 90px rgba(92, 61, 37, 0.13);
+  --canvas: #f7efe3; /* warm page base */
+  --canvas-soft: rgba(255, 255, 255, 0.62); /* light glass surface */
+  --canvas-deep: rgba(246, 229, 209, 0.72); /* warm beige depth */
+  --ink: #2f2a25; /* primary text */
+  --ink-graphite: #2f2a25; /* button and tab text */
+  --ink-warm: rgba(47, 42, 37, 0.82); /* strong secondary text */
+  --ink-soft: rgba(47, 42, 37, 0.62); /* muted labels */
+  --ink-quiet: rgba(47, 42, 37, 0.42); /* quiet helper text */
+  --on-ink: #fff8ef; /* text on dark warm cards */
+  --hairline: rgba(82, 68, 55, 0.16); /* subtle warm border */
+  --hairline-cool: rgba(82, 68, 55, 0.28); /* stronger warm border */
+  --mustard: #b88658; /* warm gold accent */
+  --mustard-soft: rgba(184, 134, 88, 0.14); /* soft warm gold */
+  --amber: #c28a5e; /* amber accent */
+  --indigo: #81679c; /* survey purple accent */
+  --sky: #3f8faa; /* chart blue accent */
+  --olive: #4f9b77; /* active green accent */
+  --shadow-soft: 0 28px 90px rgba(92, 61, 37, 0.13); /* warm soft shadow */
 }
 
 html {
-  background: #f7efe3;
+  background: #f7efe3; /* browser edge background */
 }
 
 body {
   color: var(--ink);
+  /* Main app background: #fbf3e9 -> #f4e7d8 -> #fff8ef with warm light radial washes. */
   background:
     radial-gradient(circle at 16% 4%, rgba(255, 255, 255, 0.96), transparent 28%),
     radial-gradient(circle at 78% 18%, rgba(239, 215, 185, 0.72), transparent 34%),
@@ -2705,6 +2711,7 @@ body {
 }
 
 body::before {
+  /* Subtle warm grid texture: rgba(95, 75, 58, 0.026) and rgba(95, 75, 58, 0.02). */
   background:
     repeating-linear-gradient(90deg, rgba(95, 75, 58, 0.026) 0 1px, transparent 1px 42px),
     repeating-linear-gradient(0deg, rgba(95, 75, 58, 0.02) 0 1px, transparent 1px 42px);
@@ -2712,6 +2719,7 @@ body::before {
 }
 
 body::after {
+  /* Small warm background specks: rgba(109, 84, 64, 0.12), 0.1, and 0.08. */
   background-image:
     radial-gradient(circle at 18% 22%, rgba(109, 84, 64, 0.12) 0 1px, transparent 2px),
     radial-gradient(circle at 86% 18%, rgba(109, 84, 64, 0.1) 0 1px, transparent 2px),
@@ -2720,6 +2728,7 @@ body::after {
 
 .app-header,
 .glass-card {
+  /* Header and main cards: translucent white #ffffff over warm ivory rgba(255, 249, 241, 0.68). */
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.76), rgba(248, 235, 219, 0.52)),
     rgba(255, 249, 241, 0.68);
@@ -2730,12 +2739,14 @@ body::after {
 }
 
 .glass-card::before {
+  /* Glass card highlight: white glow plus warm amber rgba(224, 174, 126, 0.18). */
   background:
     radial-gradient(circle at 18% 0%, rgba(255, 255, 255, 0.82), transparent 28%),
     radial-gradient(circle at 84% 88%, rgba(224, 174, 126, 0.18), transparent 26%);
 }
 
 .brand-logo {
+  /* Logo tile: white fill with warm border rgba(82, 68, 55, 0.18). */
   border-color: rgba(82, 68, 55, 0.18);
   background: rgba(255, 255, 255, 0.92);
   box-shadow:
@@ -2754,6 +2765,7 @@ body::after {
 .generator-form input,
 .generator-form textarea,
 .generator-form select {
+  /* Shared control surface: translucent white rgba(255, 255, 255, 0.5). */
   background: rgba(255, 255, 255, 0.5);
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.62),
@@ -2761,12 +2773,12 @@ body::after {
 }
 
 .pill.sentiment {
-  color: #3d8767;
+  color: #3d8767; /* sentiment green text */
   background: rgba(79, 155, 119, 0.14);
 }
 
 .pill.survey {
-  color: #7a5c91;
+  color: #7a5c91; /* survey purple text */
   background: rgba(129, 103, 156, 0.14);
 }
 
@@ -2777,6 +2789,7 @@ body::after {
 }
 
 .tab.active {
+  /* Active tab: white glass rgba(255, 255, 255, 0.58) with warm border rgba(82, 68, 55, 0.18). */
   border-color: rgba(82, 68, 55, 0.18);
   box-shadow:
     0 14px 34px rgba(92, 61, 37, 0.08),
@@ -2784,6 +2797,7 @@ body::after {
 }
 
 .camera-frame {
+  /* Camera panel: white, pale blue rgba(164, 203, 209, 0.22), and pale amber rgba(230, 180, 126, 0.22). */
   background:
     radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.72), transparent 18%),
     radial-gradient(circle at 18% 18%, rgba(164, 203, 209, 0.22), transparent 26%),
@@ -2795,6 +2809,7 @@ body::after {
 }
 
 .camera-frame::before {
+  /* Camera texture: warm brown grid rgba(92, 61, 37, 0.026) and rgba(92, 61, 37, 0.018). */
   background:
     radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.38), transparent 18%),
     radial-gradient(circle at 50% 86%, rgba(156, 112, 78, 0.1), transparent 34%),
@@ -2803,6 +2818,7 @@ body::after {
 }
 
 .camera-active {
+  /* Active camera wash: soft green rgba(108, 158, 139, 0.18) to warm amber rgba(205, 141, 94, 0.2). */
   background:
     radial-gradient(circle at 50% 34%, rgba(255, 255, 255, 0.42), transparent 18%),
     radial-gradient(circle at 50% 88%, rgba(156, 112, 78, 0.12), transparent 32%),
@@ -2810,6 +2826,7 @@ body::after {
 }
 
 .face-guide {
+  /* Face guide: primary ink at rgba(47, 42, 37, 0.38). */
   border-color: rgba(47, 42, 37, 0.38);
   box-shadow:
     0 0 0 14px rgba(255, 255, 255, 0.18),
@@ -2817,17 +2834,19 @@ body::after {
 }
 
 .scan-line {
-  background: rgba(47, 42, 37, 0.72);
+  background: rgba(47, 42, 37, 0.72); /* dark scan line */
 }
 
 .wide-button.is-active,
 .primary-button.is-active {
-  color: #fff;
+  color: #fff; /* active button text */
+  /* Active button green: rgba(79, 155, 119, 0.9). */
   background: rgba(79, 155, 119, 0.9);
   box-shadow: 0 18px 44px rgba(79, 155, 119, 0.16);
 }
 
 .primary-button {
+  /* Default primary button: light glass rgba(255, 255, 255, 0.58). */
   color: var(--ink);
   border-color: var(--hairline);
   background: rgba(255, 255, 255, 0.58);
@@ -2837,6 +2856,7 @@ body::after {
 }
 
 .history-visual {
+  /* History visual base: white, beige rgba(236, 220, 190, 0.34), and warm tan rgba(218, 182, 148, 0.24). */
   background:
     radial-gradient(circle at 22% 14%, rgba(255, 255, 255, 0.5), transparent 30%),
     linear-gradient(135deg, rgba(236, 220, 190, 0.34), rgba(218, 182, 148, 0.24)),
@@ -2844,6 +2864,7 @@ body::after {
 }
 
 .history-card.neutral .history-visual {
+  /* Neutral history visual: blue rgba(118, 194, 209, 0.22) with warm neutral beige. */
   background:
     radial-gradient(circle at 18% 18%, rgba(118, 194, 209, 0.22), transparent 28%),
     linear-gradient(135deg, rgba(226, 214, 197, 0.42), rgba(218, 171, 132, 0.2)),
@@ -2851,6 +2872,7 @@ body::after {
 }
 
 .history-card.stable .history-visual {
+  /* Stable history visual: pale gold rgba(255, 219, 159, 0.28) with sage and tan. */
   background:
     radial-gradient(circle at 74% 18%, rgba(255, 219, 159, 0.28), transparent 30%),
     linear-gradient(135deg, rgba(186, 215, 201, 0.24), rgba(213, 161, 123, 0.2)),
@@ -2858,7 +2880,8 @@ body::after {
 }
 
 .chart-card {
-  color: #fff8ef;
+  color: #fff8ef; /* chart text on warm gradient */
+  /* Chart card gradient: #a56442 -> #c4865c -> #e0b489. */
   background:
     radial-gradient(circle at 18% 12%, rgba(255, 226, 190, 0.5), transparent 30%),
     radial-gradient(circle at 88% 84%, rgba(141, 88, 61, 0.42), transparent 38%),
@@ -2870,12 +2893,13 @@ body::after {
 
 .chart-card strong,
 .guidance-chart strong {
-  color: #fffaf4;
+  color: #fffaf4; /* large chart numbers */
 }
 
 .chart-card .moon-mark,
 .chart-card .pulse-mark,
 .chart-card .heart-mark {
+  /* Chart icon badge: dark warm brown rgba(73, 45, 31, 0.34). */
   background: rgba(73, 45, 31, 0.34);
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.24),
@@ -2883,7 +2907,7 @@ body::after {
 }
 
 .chart-card .moon-mark::after {
-  box-shadow: -4px 1px 0 0 #fffaf4;
+  box-shadow: -4px 1px 0 0 #fffaf4; /* crescent icon color */
 }
 
 .chart-card small,
@@ -2893,14 +2917,14 @@ body::after {
 .time-axis,
 .guidance-chart small,
 .guidance-chart p {
-  color: rgba(255, 248, 239, 0.78);
+  color: rgba(255, 248, 239, 0.78); /* secondary chart text */
 }
 
 .score-segment-line i,
 .score-segment-line b,
 .stage-columns .marker,
 .stage-columns .wake {
-  background: rgba(255, 248, 239, 0.84);
+  background: rgba(255, 248, 239, 0.84); /* chart line and marker color */
 }
 
 .admin-form input,
